@@ -6,14 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public abstract class BankAccountTest
 {
 
-   Customer owner;
-   PenguinAccount pAccount;
+   public static Customer owner;
+   public static PenguinAccount pAccount;
 
-   SalaryAccount sAccount;
+   public static SalaryAccount sAccount;
 
     //runs before everything else
     @BeforeAll
-    void setUpAccount()
+    public static void setUpAccount()
     {
         owner = new Customer("Test", Status.ADULT, 30);
         pAccount = new PenguinAccount();
@@ -29,9 +29,11 @@ public abstract class BankAccountTest
 
 
     @Test
-    void withdraw(double amount)
+    void testWithdraw()
     {
-        assertTrue(sAccount.withdraw(1000));
+        pAccount.deposit(100);
+        pAccount.withdraw(50);
+        assertEquals(50, pAccount.getBalance());
     }
 
     @Test
