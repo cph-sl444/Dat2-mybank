@@ -1,16 +1,14 @@
-public class PenguinAccount extends BankAccount
-{
-    public PenguinAccount(double balance, Customer owner) {
+public class PremiumAccount {
+    public PremiumAccount(double balance, Customer owner) {
         super(balance, owner);
     }
     @Override
-    public void setOwner(Customer owner)
-    {
+    public void setOwner(Customer owner) {
         this.owner = owner;
     }
 
     @Override
-    public boolean withdraw(double amount){
+    public boolean withdraw(double amount) {
         //No negative amount
         if (amount <= 0) {
             System.out.println("The withdrawn amount must be positive ");
@@ -18,7 +16,7 @@ public class PenguinAccount extends BankAccount
             return false;
         }
 
-        //No exceeding creditlimit or overdraw
+        //No exceeding balance
         if (balance < amount) {
             System.out.println("Amount exceeds balance. Your balance is: " + balance);
             //Throw Exception
@@ -31,9 +29,4 @@ public class PenguinAccount extends BankAccount
         System.out.println("You have withdrawn: " + amount + " Your balance is now: " + balance);
         return true;
     }
-
-
-
-
-
 }

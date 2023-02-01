@@ -24,7 +24,6 @@ public class Customer
         accounts.remove(account);
     }
 
-
     public void setName(String name)
     {
         this.name = name;

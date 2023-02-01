@@ -2,10 +2,8 @@
 
 public abstract class BankAccount
 {
-
     protected double balance;
     protected Customer owner;
-
 
     public abstract void setOwner(Customer owner);
 
@@ -19,8 +17,14 @@ public abstract class BankAccount
 
     public void deposit(double amount)
     {
-        double result = amount * 0.10;
-
+        if (amount<= 0){
+            System.out.println("The deposited amount must be positive");
+            //thow specific exeption
+        }
+        else {
+            balance = balance + amount;
+            System.out.println("You have deposited: "+ amount + " Your balance is now: " + balance);
+        }
     }
 
     public double getBalance()
